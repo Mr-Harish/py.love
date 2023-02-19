@@ -1,0 +1,74 @@
+11. Students must develop a small project demonstrating CRUD(create,read.update and delete)operations on a database. the project need not to have a graphical user interface (GUI). menu driven project are recommended. following procedures must  be implemented in the project :
+ 
+(1) connection to the database
+(2) storing user inputted data into the database
+(3) updating the values in database
+(4) fetching the data from database and displaying onto the screen
+(5) deleting the data from the database
+
+
+
+
+import sqlite3
+
+# Connect to the database and create the table
+conn = sqlite3.connect('students.db')
+c = conn.cursor()
+c.execute('CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)')
+
+# Define functions for each CRUD operation
+def create():
+    name = input('Enter student name: ')
+    age = input('Enter student age: ')
+    c.execute(f"INSERT INTO students (name, age) VALUES ('{name}', {age})")
+    conn.commit()
+    print(f"Student {name} with age {age} has been created.")
+
+def read():
+    c.execute('SELECT * FROM students')
+    rows = c.fetchall()
+    if len(rows) == 0:
+        print('No students found.')
+    else:
+        for row in rows:
+            print(f"ID: {row[0]}, Name: {row[1]}, Age: {row[2]}")
+
+def update():
+    id = input('Enter student ID to update: ')
+    name = input('Enter new student name: ')
+    age = input('Enter new student age: ')
+    c.execute(f"UPDATE students SET name = '{name}', age = {age} WHERE id = {id}")
+    conn.commit()
+    print(f"Student {id} has been updated with name {name} and age {age}.")
+
+def delete():
+    id = input('Enter student ID to delete: ')
+    c.execute(f"DELETE FROM students WHERE id = {id}")
+    conn.commit()
+    print(f"Student {id} has been deleted.")
+
+# Define a menu-driven interface
+while True:
+    print('\nMENU')
+    print('1. Create student')
+    print('2. Read students')
+    print('3. Update student')
+    print('4. Delete student')
+    print('5. Exit')
+    choice = input('Enter your choice: ')
+    if choice == '1':
+        create()
+    elif choice == '2':
+        read()
+    elif choice == '3':
+        update()
+    elif choice == '4':
+        delete()
+    elif choice == '5':
+        break
+    else:
+        print('Invalid choice.')
+
+# Close the database connection
+conn.close()
+

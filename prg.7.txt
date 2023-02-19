@@ -1,0 +1,39 @@
+7. write a program to demonstrate dictionary operations: items,values,update,copy,keys etc
+
+
+
+# Define a dictionary
+my_dict = {'name': 'John', 'age': 30, 'city': 'New York'}
+
+# Get a list of key-value pairs using items()
+items = my_dict.items()
+print("Items:", items)
+
+# Get a list of values using values()
+values = my_dict.values()
+print("Values:", values)
+
+# Update the dictionary with a new key-value pair using update()
+my_dict.update({'occupation': 'engineer'})
+print("Dictionary after update:", my_dict)
+
+# Copy the dictionary using copy()
+my_dict_copy = my_dict.copy()
+print("Copy of dictionary:", my_dict_copy)
+
+# Get a list of keys using keys()
+keys = my_dict.keys()
+print("Keys:", keys)
+
+# Check if a key is in the dictionary using the 'in' keyword
+if 'name' in my_dict:
+    print("The key 'name' is in the dictionary.")
+
+# Get the value associated with a key using bracket notation
+age = my_dict['age']
+print("Age:", age)
+
+# Remove a key-value pair using pop()
+city = my_dict.pop('city')
+print("City:", city)
+print("Dictionary after pop:", my_dict)

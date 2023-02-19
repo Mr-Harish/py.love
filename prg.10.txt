@@ -1,0 +1,47 @@
+10. write a program to perform following operations : create a cvs file ,insert values,operate on multiple columns,update and delete values
+
+
+
+import csv
+
+# Create a CSV file and insert some values
+with open('example.csv', mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Name', 'Age', 'Salary'])
+    writer.writerow(['Alice', '25', '50000'])
+    writer.writerow(['Bob', '30', '60000'])
+    writer.writerow(['Charlie', '35', '70000'])
+
+# Open the CSV file and perform some operations
+with open('example.csv', mode='r', newline='') as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        # Print out the values for each row
+        print(f"Name: {row['Name']}, Age: {row['Age']}, Salary: {row['Salary']}")
+
+    # Operate on multiple columns
+    for row in reader:
+        # Calculate and print out the total compensation for each employee
+        salary = int(row['Salary'])
+        bonus = 0.1 * salary
+        total_compensation = salary + bonus
+        print(f"Name: {row['Name']}, Total Compensation: {total_compensation}")
+
+# Update a value in the CSV file
+with open('example.csv', mode='r+', newline='') as file:
+    reader = csv.reader(file)
+    writer = csv.writer(file)
+    for row in reader:
+        if row[0] == 'Bob':
+            # Update Bob's salary to 65000
+            row[2] = '65000'
+        writer.writerow(row)
+
+# Delete a row from the CSV file
+with open('example.csv', mode='r+', newline='') as file:
+    reader = csv.reader(file)
+    writer = csv.writer(file)
+    rows = [row for row in reader if row[0] != 'Charlie']
+    file.seek(0)
+    writer.writerows(rows)
+    file.truncate()

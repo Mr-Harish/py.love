@@ -1,0 +1,31 @@
+2. write a program to display the sum of all the even numbers between a user  inputted range. implement using for and while loop
+
+
+# Ask the user to enter the range
+start = int(input("Enter the starting number: "))
+end = int(input("Enter the ending number: "))
+
+# Calculate the sum of even numbers using a for loop
+sum_even = 0
+for i in range(start, end+1):
+    if i % 2 == 0:
+        sum_even += i
+
+# Print the sum of even numbers
+print("The sum of even numbers between", start, "and", end, "is", sum_even)
+
+
+# Ask the user to enter the range
+start = int(input("Enter the starting number: "))
+end = int(input("Enter the ending number: "))
+
+# Calculate the sum of even numbers using a while loop
+sum_even = 0
+i = start
+while i <= end:
+    if i % 2 == 0:
+        sum_even += i
+    i += 1
+
+# Print the sum of even numbers
+print("The sum of even numbers between", start, "and", end, "is", sum_even)

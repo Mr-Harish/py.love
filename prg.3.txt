@@ -1,0 +1,33 @@
+3. write a program to demonstrate at least six strings operations including split,search,join,modify
+
+
+
+# Define a sample string
+sample_string = "Hello, World! This is a sample string."
+
+# Split the string into a list of words
+words = sample_string.split()
+print("List of words in the string:", words)
+
+# Search for a substring in the string
+substring = "sample"
+if substring in sample_string:
+    print("The substring", substring, "was found in the string.")
+else:
+    print("The substring", substring, "was not found in the string.")
+
+# Join a list of words into a string
+joined_string = " ".join(words)
+print("The list of words joined into a string:", joined_string)
+
+# Replace a substring in the string
+new_string = sample_string.replace("sample", "modified")
+print("The string with the substring replaced:", new_string)
+
+# Convert the string to uppercase
+uppercase_string = sample_string.upper()
+print("The string in uppercase:", uppercase_string)
+
+# Convert the string to lowercase
+lowercase_string = sample_string.lower()
+print("The string in lowercase:", lowercase_string)

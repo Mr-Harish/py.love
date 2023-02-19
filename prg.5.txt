@@ -1,0 +1,34 @@
+5. write a program to demonstrate mutability and immutability of python strings,lists,and tuples
+
+
+
+# Define a string, a list, and a tuple
+string1 = "Hello, world!"
+list1 = [1, 2, 3, 4, 5]
+tuple1 = (6, 7, 8, 9, 10)
+
+# Demonstrate the immutability of strings
+print("Original string:", string1)
+# Attempt to modify the string
+try:
+    string1[0] = "h"
+except TypeError:
+    print("Strings are immutable!")
+# String remains unchanged
+print("String after attempted modification:", string1)
+
+# Demonstrate the mutability of lists
+print("Original list:", list1)
+# Modify the list
+list1[0] = 0
+print("List after modification:", list1)
+
+# Demonstrate the immutability of tuples
+print("Original tuple:", tuple1)
+# Attempt to modify the tuple
+try:
+    tuple1[0] = 5
+except TypeError:
+    print("Tuples are immutable!")
+# Tuple remains unchanged
+print("Tuple after attempted modification:", tuple1)
