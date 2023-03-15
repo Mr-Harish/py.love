@@ -1,33 +1,24 @@
 3. write a program to demonstrate at least six strings operations including split,search,join,modify
 
+text = "Hello, world! This is a test string."
 
+words = text.split()
+print("List of words:", words)
 
-# Define a sample string
-sample_string = "Hello, World! This is a sample string."
-
-# Split the string into a list of words
-words = sample_string.split()
-print("List of words in the string:", words)
-
-# Search for a substring in the string
-substring = "sample"
-if substring in sample_string:
-    print("The substring", substring, "was found in the string.")
+if "world" in text:
+    print("Substring found!")
 else:
-    print("The substring", substring, "was not found in the string.")
+    print("Substring not found.")
 
-# Join a list of words into a string
-joined_string = " ".join(words)
-print("The list of words joined into a string:", joined_string)
+separator = "_"
+joined_text = separator.join(words)
+print("Joined string:", joined_text)
 
-# Replace a substring in the string
-new_string = sample_string.replace("sample", "modified")
-print("The string with the substring replaced:", new_string)
+new_text = text.replace("test", "example")
+print("Modified string:", new_text)
 
-# Convert the string to uppercase
-uppercase_string = sample_string.upper()
-print("The string in uppercase:", uppercase_string)
+uppercase_text = text.upper()
+print("Uppercase string:", uppercase_text)
 
-# Convert the string to lowercase
-lowercase_string = sample_string.lower()
-print("The string in lowercase:", lowercase_string)
+trimmed_text = text.strip()
+print("Trimmed string:", trimmed_text)
