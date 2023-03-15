@@ -2,28 +2,18 @@
 
 
 
-class Person:
-    def __init__(self, name):
-        self.name = name
-        print(f"{self.name} has been created.")
-
-    def say_hello(self):
-        print(f"Hello, my name is {self.name}.")
-
+class Example:
+    def __init__(self):
+        print("Constructor called.")
+    
     def __del__(self):
-        print(f"{self.name} has been deleted.")
+        print("Destructor called.")
+    
+    def some_method(self):
+        print("Method called.")
 
+obj = Example()
 
-# Create a new Person object
-person1 = Person("Alice")
+obj.some_method()
 
-# Call a method on the Person object
-person1.say_hello()
-
-# Delete the Person object
-del person1
-
-# Try to call a method on the deleted Person object (will result in an error)
-# person1.say_hello()
-
-
+del obj
